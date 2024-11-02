@@ -1,0 +1,97 @@
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the book
+        title:
+          type: string
+          description: The title of the book
+        author:
+          type: string
+          description: The author of the book
+        category:
+          type: string
+          description: The category of the book
+        quantity:
+          type: integer
+          description: The total number of copies available
+        available:
+          type: integer
+          description: The number of copies available for loan
+        image:
+          type: string
+          description: The URL of the book's cover image
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the book was created
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the book was last updated
+
+    Loan:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the loan
+        book_id:
+          type: integer
+          description: The ID of the book being loaned
+        user_id:
+          type: integer
+          description: The ID of the user requesting the loan
+        borrow_date:
+          type: string
+          format: date
+          description: The date the book was borrowed
+        return_date:
+          type: string
+          format: date
+          description: The date the book is expected to be returned
+        status:
+          type: string
+          description: The status of the loan request
+          enum: [pending, approved, rejected]
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the loan was created
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The unique identifier for the user
+        name:
+          type: string
+          description: The name of the user
+        email:
+          type: string
+          format: email
+          description: The email of the user
+        password:
+          type: string
+          description: The password of the user
+        role:
+          type: string
+          description: The role of the user (admin or regular user)
+        profile_image:
+          type: string
+          description: The URL of the user's profile image
+        is_admin:
+          type: boolean
+          description: Whether the user is an admin or not
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the user was created
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the user was last updated
